@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>insta clone</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="index3.css" />
 </head>
 <body>
-    <p>Hi everyone welcome to instagram clone website</p>
+  <div class="calculator">
+    <input type="text" id="display" value="0" readonly />
+    <div class="buttons">
+      <button class="mode" id="deg">Deg</button>
+      <button class="mode" id="rad">Rad</button>
+      <button onclick="factorial()">x!</button>
+      <button onclick="insert('(')">(</button>
+      <button onclick="insert(')')">)</button>
+      <button onclick="insert('%')">%</button>
+      <button onclick="clearDisplay()">AC</button>
+
+      <button onclick="toggleInv()">Inv</button>
+      <button onclick="insert('sin(')">sin</button>
+      <button onclick="insert('ln(')">ln</button>
+      <button onclick="insert('7')">7</button>
+      <button onclick="insert('8')">8</button>
+      <button onclick="insert('9')">9</button>
+      <button onclick="insert('/')">÷</button>
+
+      <button onclick="insert('π')">π</button>
+      <button onclick="insert('cos(')">cos</button>
+      <button onclick="insert('log(')">log</button>
+      <button onclick="insert('4')">4</button>
+      <button onclick="insert('5')">5</button>
+      <button onclick="insert('6')">6</button>
+      <button onclick="insert('*')">×</button>
+
+      <button onclick="insert('e')">e</button>
+      <button onclick="insert('tan(')">tan</button>
+      <button onclick="insert('√(')">√</button>
+      <button onclick="insert('1')">1</button>
+      <button onclick="insert('2')">2</button>
+      <button onclick="insert('3')">3</button>
+      <button onclick="insert('-')">−</button>
+
+      <button onclick="ans()">Ans</button>
+      <button onclick="insert('EXP(')">EXP</button>
+      <button onclick="insert('^')">xʸ</button>
+      <button onclick="insert('0')">0</button>
+      <button onclick="insert('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="insert('+')">+</button>
+    </div>
+    <div class="solver">Maths solver</div>
+  </div>
+
+  <script src="index3.js"></script>
 </body>
 </html>
