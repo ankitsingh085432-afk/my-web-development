@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dining Discovery Page</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body{
+        background: #fff;
+        color: #1c1c1c;
+    }
+
+    .wrapper{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* ---------- TOP CATEGORY TABS ---------- */
+    .top-tabs{
+        display: flex;
+        gap: 50px;
+        padding: 10px 0 25px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .tab{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+    }
+
+    .tab-icon{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #f3f3f3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+    .tab span{
+        font-size: 18px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    .tab.active span{
+        color: #e23744; /* zomato-ish red */
+        font-weight: bold;
+    }
+
+    /* ---------- FILTER CHIPS ---------- */
+    .filters{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 25px 0;
+    }
+
+    .chip{
+        padding: 8px 16px;
+        border: 1px solid #d5d5d5;
+        border-radius: 20px;
+        font-size: 14px;
+        color: #444;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s;
+        white-space: nowrap;
+    }
+
+    .chip:hover{
+        border-color: #e23744;
+        color: #e23744;
+    }
+
+    /* ---------- PROMO BANNER ---------- */
+    .promo-banner{
+        position: relative;
+        height: 300px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 35px;
+        background: linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.1)),
+                    url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=1200') center/cover;
+        display: flex;
+        align-items: center;
+        padding: 0 50px;
+    }
+
+    .promo-text h2{
+        color: white;
+        font-size: 22px;
+        font-weight: normal;
+    }
+
+    .promo-text .discount{
+        color: white;
+        font-size: 52px;
+        font-weight: bold;
+        line-height: 1.1;
+    }
+
+    .promo-text .discount span{
+        font-size: 22px;
+        font-weight: normal;
+        vertical-align: middle;
+    }
+
+    .promo-text p{
+        color: #eee;
+        margin: 10px 0 20px;
+        font-size: 15px;
+    }
+
+    .promo-btn{
+        background: #e23744;
+        color: white;
+        border: none;
+        padding: 12px 22px;
+        border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .promo-btn:hover{
+        background: #c92a36;
+    }
+
+    /* ---------- SECTION TITLE ---------- */
+    .section-title{
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    /* ---------- RESTAURANT GRID ---------- */
+    .restaurant-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .restaurant-card{
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .restaurant-card:hover{
+        transform: translateY(-5px);
+    }
+
+    .card-image{
+        position: relative;
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+    }
+
+    .badge{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0,0,0,0.6);
+        color: white;
+        font-size: 11px;
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+
+    .card-info{
+        padding: 12px 4px;
+    }
+
+    .card-info h3{
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+
+    .card-info p{
+        font-size: 13px;
+        color: #777;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 600px){
+        .top-tabs{
+            gap: 25px;
+        }
+        .tab span{
+            font-size: 14px;
+        }
+        .promo-text .discount{
+            font-size: 38px;
+        }
+        .promo-banner{
+            height: 240px;
+            padding: 0 25px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- Top category tabs -->
+    <div class="top-tabs">
+        <div class="tab active">
+            <div class="tab-icon">🍽️</div>
+            <span>Dining Out</span>
+        </div>
+        <div class="tab">
+            <div class="tab-icon">🛵</div>
+            <span>Delivery</span>
+        </div>
+        <div class="tab">
+            <div class="tab-icon">🍷</div>
+            <span>Nightlife</span>
+        </div>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="filters">
+        <div class="chip">⚙️ Filters</div>
+        <div class="chip">Offers</div>
+        <div class="chip">Rating: 4.5+</div>
+        <div class="chip">Pet friendly</div>
+        <div class="chip">Outdoor seating</div>
+        <div class="chip">Serves Alcohol</div>
+        <div class="chip">Open Now</div>
+    </div>
+
+    <!-- Promo banner -->
+    <div class="promo-banner">
+        <div class="promo-text">
+            <h2>Get up to</h2>
+            <div class="discount">50%<span> OFF</span></div>
+            <p>on your dining bills this weekend</p>
+            <button class="promo-btn">Check out all the restaurants</button>
+        </div>
+    </div>
+
+    <!-- Restaurant list -->
+    <h2 class="section-title">Restaurants near you</h2>
+    <div class="restaurant-grid">
+
+        <div class="restaurant-card">
+            <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500')">
+                <div class="badge">Promoted</div>
+            </div>
+            <div class="card-info">
+                <h3>The Garden Lounge</h3>
+                <p>North Indian, Continental · ₹1,500 for two</p>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500')">
+                <div class="badge">Promoted</div>
+            </div>
+            <div class="card-info">
+                <h3>Spice Route Café</h3>
+                <p>Asian, Fusion · ₹1,200 for two</p>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1544148103-0773bf10d330?w=500')">
+                <div class="badge">Promoted</div>
+            </div>
+            <div class="card-info">
+                <h3>Velvet Bar & Kitchen</h3>
+                <p>Bar Food, Continental · ₹2,000 for two</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

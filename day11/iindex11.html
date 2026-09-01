@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato mini copy</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            color: #1c1c1c;
+            background: #fff;
+        }
+        .wrapper{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding :20px;
+        }
+        .top-tabs{
+            display: flex;
+            gap: 50px;
+            margin: 10px 0px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .tab{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+        .tab-icon{
+            height: 50px;
+            width: 50px;
+            
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f3f3;
+            font-size:22px;
+        }
+        .tab span{
+            font-size: 18px;
+            font-weight: 500;
+            color: #555;
+        }
+        .tab.active span{
+            color:#c7351e;
+            font-weight: bold;
+        }
+        .filter{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 25px 0px;
+        }
+        .chips{
+            padding: 8px 16px;
+            border:1px solid #d5d5d5;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            transition: background 0.2s ,border-color 0.2s;
+            white-space: nowrap;
+        }
+        .chips:hover{
+             border-color: #e23744;
+             color: #e23744;
+        }
+        .promo-banner{
+            position: relative;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 35px;
+           background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)), url(https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center/cover;
+
+            display:flex;
+            align-items: center;
+            padding: 0 50px;
+        }
+        .promo-text h2{
+            color: white;
+            font-size: 22px;
+            font-weight: normal;
+        }
+        .promo-text .discount{
+            color: white;
+            font-size: 52px; */
+             font-weight: bold;
+             line-height: 1.1;
+        }
+        .promo-text span{
+            font-size: 22px;
+            font-weight: normal;
+            vertical-align: middle;
+        }
+        .promo-text p{
+            color:#eee;
+            font-size: 15px;
+            margin:10px 0px 20px;
+
+        }
+        .promo-btn{
+            background-color:#e23744 ;
+            color: white;
+            border:none;
+            border-radius: 6px;
+            font-size:15px;
+            padding: 12px 22px;
+            cursor: pointer;
+        }
+        .promo-btn:hover{
+            background:#c92a36;
+        }
+        .restaurant-grid{
+            display: grid;
+            grid-template-columns: repeat(auto,minmax(280px,1fr));
+            gap: 25px;
+        }
+        .restaurant-card{
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .restaurant-card:hover{
+            transform: translateY(-5px);
+        }
+
+        .card-image{
+            position: relative;
+            height: 180px;
+            width: 1200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            /* background-repeat: no-repeat; */
+        }
+        .badge{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 11px;
+            padding :4px 8px;
+            border-radius: 4px;
+        }
+        .card-info{
+         padding: 12px 4px;   
+        }
+        .card-info h3{
+            font: size 17px;
+            margin-bottom: 5px;
+        }
+        .card-info p{
+            font-size:13px;
+            color: #777;
+        }
+        @media(max-width:600px){
+            .top-tabs{
+                gap: 25px;
+
+            }
+            .tab span{
+                font-size: 14px;
+            }
+            .promo-text discount{
+                font-size: 38px;
+            }
+            .promo-banner{
+                height: 240px;
+                padding: 0px 25px;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="wrapper"> 
+        <!-- Top category icon  -->
+        <div class="top-tabs">
+            <div class="tab active">
+                <div class="tab-icon">🍽️</div>
+                <span>Dinning Out</span>
+            </div>
+            <div class="tab">
+                <div class="tab-icon">🛵</div>
+                <span>Delivery</span>
+            </div>
+            <div class="tab">
+                <div class="tab-icon">🍷</div>
+                <span>Night Life</span>
+            </div>
+        </div>
+        <div class="filter">
+            <div class="chips">⚙️ Filters</div>
+            <div class="chips">Offer</div>
+            <div class="chips">Ratting 4.5</div>
+            <div class="chips">Pet Friendly</div>
+            <div class="chips">Outdoor Seating</div>
+            <div class="chips">Server Alcohol</div>
+            <div class="chips">Open now</div>
+            
+        </div>
+        <div class="promo-banner">
+            <div class="promo-text">
+                <h2>Get Upto</h2>
+                <div class="discount">50%<span>OFF</span></div>
+                <p>on your dinning bills this weekends</p>
+                <button class="promo-btn">Check out all the restuarents</button>
+            </div>
+        </div>
+        <h2 class="section-title">Restaurant near you</h2>
+        <div class="restaurant-grid">
+            <div class="restaurant-card">
+                <div class="card-image" style="background-image:url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+                    <div class="badge">Promoted</div>
+                </div>
+                <div class="card-info">
+                    <h3>The Garden Louge</h3>
+                    <p>North-Indian,continental . Rs.1,500 for two</p>
+                </div>
+            </div>
+            <div class="restaurant-card">
+                <div class="card-image" style="background-image:url(https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+            </div>
+            <div class="card-info">
+                <h3>The Royal Cafe</h3>
+                <p>Europian Dish . $ 20 for two</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

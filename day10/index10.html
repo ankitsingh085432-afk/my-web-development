@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation -Project</title>
+    <style>
+        body{
+            display: flex;
+            gap: 60px;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(9, 9, 54);
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .ring{
+            height: 100px;
+            width: 100px;
+            background-color: blueviolet;
+            border-radius: 70px;
+            border: 6px solid yellow;
+            border-top: 6px solid red;
+            animation: spin 1s linear infinite;
+
+        }
+        @keyframes spin{
+            0%{transform:rotate(0deg)}
+            100%{transform: rotate(360deg);}
+        }
+        .dots{
+            display:flex;
+            gap: 60px;
+        }
+        .dots span{
+            height: 30px;
+            width: 30px;
+            background-color: pink;
+            border-radius: 50%;
+            animation:bounce 0.6s ease-in-out infinite;
+
+        }@keyframes bounce{
+            0% ,100% {transform:tanslateY(0) }
+            50%{transform:translateY(-15px)}
+        }
+        .dots span:nth-child(2){animation-delay: 0.2s}
+        .dots span:nth-child(3){animation-delay: 0.4s}
+        .pulse{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: orange;
+            animation:pulse 1.2s ease-in-out infinite
+        }
+        @keyframes pulse{
+            0%{transform: scale(0.8);opacity: 1;}
+            100%{transform: scale(0);opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+    <div  class="ring"></div>
+    <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="pulse"></div>
+    
+</body>
+</html>
