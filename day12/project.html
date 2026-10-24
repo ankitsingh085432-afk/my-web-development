@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00; 
+            padding: 20px;
+        }
+        
+        .hacker-text {
+            font-family: 'Share Tech Mono', monospace; 
+            background-color: #000; 
+            color: red;
+            padding: 5px 10px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+   
+<div id ="terminal"></div>
+<script>
+        const addItem = async (item)=>{
+            await randomDelay()
+            let div = document.createElement("div");
+            div.innerHTML = item;
+            document.getElementById("terminal").append(div);
+        }
+        const randomDelay = () =>{
+            return new Promise((resolve,reject) => {
+                timeout = 1 + 6*Math.random();
+                setTimeout(()=>{
+                    resolve()
+                } ,timeout * 1000);
+            })
+        }
+        async function main(){
+
+                let t = setInterval(() =>{
+                    let last = document.body.getElementsByTagName("div");
+                    last = last[last.length-1];
+                    if(last.innerHTML.endsWith("...")){
+                        last.innerHTML = last.innerHTML.slice(0,last.innerHTML.length-3);
+                    }else{
+                        last.innerHTML = last.innerHTML + ".";
+                    }
+                },400);
+                
+                let text = [ "Initialization Hacking...",
+                "Reading Your Files...",
+                "Password file Detected...",
+                "Sending all Personal Files and passwords to the server...",
+                "Hacked completed",
+                "Cleaning up..."] 
+                const runTerminal = async() =>{
+                    for(const item of text){
+                        await addItem(item);
+                    }
+                }
+               await  runTerminal();
+                await randomDelay()
+                clearInterval(t);
+                alert("Hacking completed. Reset the laptop your all data will delete");
+        }
+        main();
+
+    </script>
+</body>
+</html>
